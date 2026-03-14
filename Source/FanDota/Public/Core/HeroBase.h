@@ -24,6 +24,24 @@ struct FHeroStats
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Hero")
 	float MaxMana;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Hero")
+	float Armor;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Hero")
+	float MagicResist;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Hero")
+	float DamageSpeed;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Hero")
+	float MovementSpeed;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Hero")
+	float DamageRange;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Hero")
+	float VisionRange;
 };
 
 UCLASS(Blueprintable)
