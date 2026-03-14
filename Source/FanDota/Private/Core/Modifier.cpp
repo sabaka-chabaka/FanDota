@@ -20,5 +20,5 @@ bool UModifier::IsExpired()
 {
 	float Time = Target->GetWorld()->GetTimeSeconds();
 	
-	return (Time - StartTime) >= Duration;
+	return (Time - StartTime) >= Duration ? Duration != -1 : false;
 }

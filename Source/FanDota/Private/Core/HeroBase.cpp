@@ -39,3 +39,5 @@ void AHeroBase::Tick(float DeltaTime)
 		}
 	}
 }
+
+//TODO: IMPLEMENT MOVEMENT AND REALIZE STUN MODIFIER

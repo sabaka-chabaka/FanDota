@@ -22,9 +22,9 @@ public:
 	
 	UPROPERTY()
 	float StartTime;
-	
-	virtual void Apply(AHeroBase* Target);
-	
+
+	virtual void Apply(AHeroBase* InTarget) { OnApply(InTarget); }
+
 	virtual void OnApply(AHeroBase* InTarget);
 	virtual void OnTick(float DeltaSeconds);
 	virtual void OnRemove();
