@@ -8,6 +8,24 @@
 
 class UModifier;
 
+USTRUCT(BlueprintType)
+struct FHeroStats
+{
+	GENERATED_BODY()
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Hero")
+	float Health;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Hero")
+	float Mana;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Hero")
+	float MaxHealth;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Hero")
+	float MaxMana;
+};
+
 UCLASS(Blueprintable)
 class FANDOTA_API AHeroBase : public ACharacter
 {
@@ -26,4 +44,7 @@ protected:
 	
 public:
 	virtual void ApplyModifier(TSubclassOf<UModifier>);
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Hero")
+	FHeroStats Stats;
 };

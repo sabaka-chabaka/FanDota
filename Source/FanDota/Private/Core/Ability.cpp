@@ -18,8 +18,8 @@ bool UAbility::CanCast(AHeroBase* Caster)
 	if (Time - LastCastTime < Cooldown)
 		return false;
 
-	//if (Caster->Stats.Mana < ManaCost)
-	//	return false;
+	if (Caster->Stats.Mana < ManaCost)
+		return false;
 
 	return true;
 }
@@ -29,7 +29,7 @@ void UAbility::Activate(AHeroBase* Caster, AActor* Target)
 	if (!CanCast(Caster))
 		return;
 
-	//Caster->Stats.Mana -= ManaCost;
+	Caster->Stats.Mana -= ManaCost;
 
 	StartCooldown(Caster);
 }
@@ -39,7 +39,7 @@ void UAbility::ActivatePoint(AHeroBase* Caster, FVector Location)
 	if (!CanCast(Caster))
 		return;
 
-	//Caster->Stats.Mana -= ManaCost;
+	Caster->Stats.Mana -= ManaCost;
 
 	StartCooldown(Caster);
 }
@@ -48,5 +48,3 @@ void UAbility::StartCooldown(const AHeroBase* Caster)
 {
 	LastCastTime = Caster->GetWorld()->GetTimeSeconds();
 }
-
-//TODO: NORMALLY REALIZE THIS MECHANIC
