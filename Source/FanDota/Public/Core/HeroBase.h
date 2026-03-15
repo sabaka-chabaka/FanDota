@@ -57,10 +57,10 @@ public:
 protected:
 	virtual void BeginPlay() override;
 	
+public:
 	UPROPERTY()
 	TArray<UModifier*> Modifiers;
 	
-public:
 	virtual void ApplyModifier(TSubclassOf<UModifier>);
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Hero")

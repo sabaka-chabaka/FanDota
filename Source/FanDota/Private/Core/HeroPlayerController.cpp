@@ -3,6 +3,8 @@
 #include "Core/HeroPlayerController.h"
 
 #include "Blueprint/AIBlueprintHelperLibrary.h"
+#include "Core/HeroBase.h"
+#include "Modifiers/StunModifier.h"
 
 AHeroPlayerController::AHeroPlayerController()
 {
@@ -26,9 +28,14 @@ void AHeroPlayerController::SetupInputComponent()
 
 void AHeroPlayerController::SetDestinationPressed()
 {
+	if (AHeroBase* Hero = Cast<AHeroBase>(GetPawn()))
+	{
+		if (Hero->Modifiers.Contains(UStunModifier::StaticClass())) return;
+	}
+	
 	FHitResult Hit;
-
-	if (bool bHitSuccessful = GetHitResultUnderCursor(ECC_Visibility, true, Hit))
+	
+	if (GetHitResultUnderCursor(ECC_Visibility, true, Hit))
 	{
 		UAIBlueprintHelperLibrary::SimpleMoveToLocation(this, Hit.Location);
 	}
