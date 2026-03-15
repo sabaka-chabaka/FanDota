@@ -6,6 +6,7 @@
 #include "GameFramework/Character.h"
 #include "HeroBase.generated.h"
 
+class UAbility;
 class UModifier;
 
 USTRUCT(BlueprintType)
@@ -60,6 +61,9 @@ protected:
 public:
 	UPROPERTY()
 	TArray<UModifier*> Modifiers;
+	
+	UPROPERTY()
+	TArray<UAbility*> Abilities;
 	
 	virtual void ApplyModifier(TSubclassOf<UModifier>);
 	

@@ -38,6 +38,9 @@ public:
 	float Cooldown;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Ability")
+	float Level;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Ability")
 	EAbilityTargetType TargetType;
 	
 	UPROPERTY()
