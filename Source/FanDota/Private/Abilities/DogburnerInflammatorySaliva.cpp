@@ -3,6 +3,9 @@
 #include "Abilities/DogburnerInflammatorySaliva.h"
 
 #include "Core/HeroBase.h"
+#include "Core/MagicDamage.h"
+#include "Kismet/GameplayStatics.h"
+#include "Modifiers/StunModifier.h"
 
 UDogburnerInflammatorySaliva::UDogburnerInflammatorySaliva()
 {
@@ -19,6 +22,7 @@ void UDogburnerInflammatorySaliva::Activate(AHeroBase* Caster, AActor* Target)
 
 	if (AHeroBase* TargetHero = Cast<AHeroBase>(Target))
 	{
-		
+		TargetHero->ApplyModifier(UStunModifier::StaticClass());
+		UGameplayStatics::ApplyDamage(Target, 125, Caster->GetController(), Caster, UMagicDamage::StaticClass());
 	}
 }
