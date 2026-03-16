@@ -2,9 +2,13 @@
 
 #include "Heroes/Dogburner.h"
 
+#include "Abilities/DogburnerInflammatorySaliva.h"
+
 ADogburner::ADogburner()
 {
 	PrimaryActorTick.bCanEverTick = true;
+	UAbility* Saliva = CreateDefaultSubobject<UDogburnerInflammatorySaliva>(TEXT("SalivaAbility"));
+	Abilities.Add(Saliva);
 }
 
 void ADogburner::BeginPlay()
