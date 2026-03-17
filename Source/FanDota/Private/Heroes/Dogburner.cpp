@@ -3,12 +3,14 @@
 #include "Heroes/Dogburner.h"
 
 #include "Abilities/DogburnerInflammatorySaliva.h"
+#include "Abilities/DogburnerScorchedSkin.h"
 
 ADogburner::ADogburner()
 {
 	PrimaryActorTick.bCanEverTick = true;
-	UAbility* Saliva = CreateDefaultSubobject<UDogburnerInflammatorySaliva>(TEXT("SalivaAbility"));
+	UAbility* Saliva = CreateDefaultSubobject<UDogburnerInflammatorySaliva>(TEXT("DogburnerSalivaAbility"));
 	Abilities.Add(Saliva);
+	PassiveAbility = CreateDefaultSubobject<UDogburnerScorchedSkin>(TEXT("DogburnerScorchedSkin"));
 }
 
 void ADogburner::BeginPlay()
